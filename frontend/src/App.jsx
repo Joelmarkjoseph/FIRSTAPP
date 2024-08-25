@@ -12,7 +12,9 @@ function App() {
     fetchContacts();
   }, []);
   const fetchContacts = async () => {
-    const response = await fetch("http://127.0.0.1:5000/contacts");
+    const response = await fetch(
+      "https://firstapp-1-wbeh.onrender.com/contacts"
+    );
     const data = await response.json();
     setContacts(data.contacts);
     console.log(data.contacts);
