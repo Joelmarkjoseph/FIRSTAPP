@@ -9,7 +9,7 @@ function App() {
   const [currentContact, setCurrentContact] = useState({});
 
   useEffect(() => {
-    // fetchContacts();
+    fetchContacts();
   }, []);
   const fetchContacts = async () => {
     const response = await fetch(
@@ -41,6 +41,7 @@ function App() {
 
   return (
     <>
+      <h1>Hello</h1>
       <ContactsList
         contacts={contacts}
         updateContact={openEditModal}
