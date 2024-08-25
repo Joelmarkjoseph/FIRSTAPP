@@ -6,6 +6,8 @@ import "./App.css";
 function App() {
   const [contacts, setContacts] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [currentContact, setCurrentContact] = useState({});
+
   useEffect(() => {
     fetchContacts();
   }, []);
@@ -18,13 +20,30 @@ function App() {
 
   const closeModal = () => {
     setModalOpen(false);
+    setCurrentContact({});
   };
   const openCreateModal = () => {
     if (!isModalOpen) setModalOpen(true);
   };
+
+  const openEditModal = (contact) => {
+    if (isModalOpen) return;
+    setCurrentContact(contact);
+    setModalOpen(true);
+  };
+
+  const onUpdate = () => {
+    closeModal();
+    fetchContacts();
+  };
+
   return (
     <>
-      <ContactsList contacts={contacts} />
+      <ContactsList
+        contacts={contacts}
+        updateContact={openEditModal}
+        updateCallback={onUpdate}
+      />
       <button onClick={openCreateModal}>Create New Contact</button>
       {isModalOpen && (
         <div className="modal">
@@ -32,7 +51,7 @@ function App() {
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <ContactForm />
+            <ContactForm existingContact={currentContact} />
           </div>
         </div>
       )}
