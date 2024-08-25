@@ -9,7 +9,7 @@ function App() {
   const [currentContact, setCurrentContact] = useState({});
 
   useEffect(() => {
-    fetchContacts();
+    // fetchContacts();
   }, []);
   const fetchContacts = async () => {
     const response = await fetch(
