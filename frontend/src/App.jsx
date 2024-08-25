@@ -41,7 +41,6 @@ function App() {
 
   return (
     <>
-      <h1>Hello</h1>
       <ContactsList
         contacts={contacts}
         updateContact={openEditModal}
