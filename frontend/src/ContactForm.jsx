@@ -15,7 +15,7 @@ const ContactForm = ({ existingContact = {}, updateCallback }) => {
       email,
     };
     const url =
-      "https://firstapp-1-wbeh.onrender.com/" +
+      "https://backendcont.onrender.com/" +
       (updating ? `update_contact/${existingContact.id}` : "create_contact");
     const options = {
       method: updating ? "PATCH" : "POST",

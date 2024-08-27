@@ -8,7 +8,7 @@ const ContactList = ({ contacts, updateContact, updateCallback }) => {
         method: "DELETE",
       };
       const response = await fetch(
-        `https://firstapp-1-wbeh.onrender.com/delete_contact/${id}`,
+        `https://backendcont.onrender.com/delete_contact/${id}`,
         options
       );
       if (response.status === 200) {
